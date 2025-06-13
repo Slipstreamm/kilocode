@@ -243,6 +243,7 @@ describe("mergeExtensionState", () => {
 			renderContext: "sidebar",
 			maxReadFileLine: 500,
 			showAutoApproveMenu: false,
+			openFilesInBackground: false,
 			cloudUserInfo: null,
 			organizationAllowList: { allowAll: true, providers: {} },
 			autoCondenseContext: true,
