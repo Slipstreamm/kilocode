@@ -385,6 +385,10 @@
 			"label": "在列表和搜索中显示 .kilocodeignore 文件",
 			"description": "启用后，与 .kilocodeignore 中模式匹配的文件将在列表中显示锁定符号。禁用时，这些文件将从文件列表和搜索中完全隐藏。"
 		},
+                "openFilesInBackground": {
+                        "label": "Open files in background",
+                        "description": "Open files without stealing focus when the agent edits them."
+                },
 		"maxReadFile": {
 			"label": "文件读取自动截断阈值",
 			"description": "自动读取文件行数设置：-1=完整读取 0=仅生成行号索引，较小值可节省token，支持后续使用行号进行读取。 <0>了解更多</0>",

@@ -1021,13 +1021,19 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			await provider.postStateToWebview()
 			break
 		// kilocode_change start
-		case "showAutoApproveMenu":
-			await updateGlobalState("showAutoApproveMenu", message.bool ?? true)
-			await provider.postStateToWebview()
-			break
-		// kilocode_change end
-		case "maxConcurrentFileReads":
-			const valueToSave = message.value // Capture the value intended for saving
+                case "showAutoApproveMenu":
+                        await updateGlobalState("showAutoApproveMenu", message.bool ?? true)
+                        await provider.postStateToWebview()
+                        break
+                case "openFilesInBackground":
+                        await vscode.workspace
+                                .getConfiguration(Package.name)
+                                .update("openFilesInBackground", message.bool ?? false, vscode.ConfigurationTarget.Global)
+                        await provider.postStateToWebview()
+                        break
+                // kilocode_change end
+                case "maxConcurrentFileReads":
+                        const valueToSave = message.value // Capture the value intended for saving
 			await updateGlobalState("maxConcurrentFileReads", valueToSave)
 			await provider.postStateToWebview()
 			break

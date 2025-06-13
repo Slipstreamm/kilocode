@@ -53,10 +53,12 @@ export const globalSettingsSchema = z.object({
 	browserToolEnabled: z.boolean().optional(),
 	browserViewportSize: z.string().optional(),
 	showAutoApproveMenu: z.boolean().optional(), // kilocode_change
+	openFilesInBackground: z.boolean().optional(),
 	localWorkflowToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
 	globalWorkflowToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
 	localRulesToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
 	globalRulesToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
+
 	screenshotQuality: z.number().optional(),
 	remoteBrowserEnabled: z.boolean().optional(),
 	remoteBrowserHost: z.string().optional(),
@@ -145,9 +147,17 @@ export const GLOBAL_SETTINGS_KEYS = keysOf<GlobalSettings>()([
 
 	"browserToolEnabled",
 	"browserViewportSize",
+	"showAutoApproveMenu", // kilocode_change
+	"openFilesInBackground",
+	"localWorkflowToggles", // kilocode_change
+	"globalWorkflowToggles", // kilocode_change
+	"localRulesToggles", // kilocode_change
+	"globalRulesToggles", // kilocode_change
+
 	"screenshotQuality",
 	"remoteBrowserEnabled",
 	"remoteBrowserHost",
+	"cachedChromeHostUrl",
 
 	"enableCheckpoints",
 
@@ -193,14 +203,7 @@ export const GLOBAL_SETTINGS_KEYS = keysOf<GlobalSettings>()([
 	"customModePrompts",
 	"customSupportPrompts",
 	"enhancementApiConfigId",
-	"cachedChromeHostUrl",
 	"historyPreviewCollapsed",
-
-	"showAutoApproveMenu", // kilocode_change
-	"localWorkflowToggles", // kilocode_change
-	"globalWorkflowToggles", // kilocode_change
-	"localRulesToggles", // kilocode_change
-	"globalRulesToggles", // kilocode_change
 ])
 
 /**
@@ -328,6 +331,8 @@ export const EVALS_SETTINGS: RooCodeSettings = {
 	terminalZdotdir: true,
 	terminalCompressProgressBar: true,
 	terminalShellIntegrationDisabled: true,
+
+	openFilesInBackground: false,
 
 	diffEnabled: true,
 	fuzzyMatchThreshold: 1,

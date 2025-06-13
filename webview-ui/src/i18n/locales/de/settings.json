@@ -384,6 +384,10 @@
 			"label": ".kilocodeignore-Dateien in Listen und Suchen anzeigen",
 			"description": "Wenn aktiviert, werden Dateien, die mit Mustern in .kilocodeignore übereinstimmen, in Listen mit einem Schlosssymbol angezeigt. Wenn deaktiviert, werden diese Dateien vollständig aus Dateilisten und Suchen ausgeblendet."
 		},
+                "openFilesInBackground": {
+                        "label": "Open files in background",
+                        "description": "Open files without stealing focus when the agent edits them."
+                },
 		"maxConcurrentFileReads": {
 			"label": "Concurrent file reads limit",
 			"description": "Maximum number of files the 'read_file' tool can process concurrently. Higher values may speed up reading multiple small files but increase memory usage."

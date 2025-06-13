@@ -59,18 +59,20 @@ type ContextManagementSettingsProps = HTMLAttributes<HTMLDivElement> & {
 	listApiConfigMeta: any[]
 	maxOpenTabsContext: number
 	maxWorkspaceFiles: number
-	showRooIgnoredFiles?: boolean
-	maxReadFileLine?: number
-	setCachedStateField: SetCachedStateField<
+        showRooIgnoredFiles?: boolean
+        maxReadFileLine?: number
+        openFilesInBackground?: boolean
+        setCachedStateField: SetCachedStateField<
 		| "autoCondenseContext"
 		| "autoCondenseContextPercent"
 		| "condensingApiConfigId"
 		| "customCondensingPrompt"
 		| "maxOpenTabsContext"
 		| "maxWorkspaceFiles"
-		| "showRooIgnoredFiles"
-		| "maxReadFileLine"
-	>
+                | "showRooIgnoredFiles"
+                | "maxReadFileLine"
+                | "openFilesInBackground"
+        >
 }
 
 export const ContextManagementSettings = ({
@@ -80,12 +82,13 @@ export const ContextManagementSettings = ({
 	customCondensingPrompt,
 	listApiConfigMeta,
 	maxOpenTabsContext,
-	maxWorkspaceFiles,
-	showRooIgnoredFiles,
-	setCachedStateField,
-	maxReadFileLine,
-	className,
-	...props
+        maxWorkspaceFiles,
+        showRooIgnoredFiles,
+        setCachedStateField,
+        maxReadFileLine,
+        openFilesInBackground,
+        className,
+        ...props
 }: ContextManagementSettingsProps) => {
 	const { t } = useAppTranslation()
 	return (
@@ -136,19 +139,33 @@ export const ContextManagementSettings = ({
 					</div>
 				</div>
 
-				<div>
-					<VSCodeCheckbox
-						checked={showRooIgnoredFiles}
-						onChange={(e: any) => setCachedStateField("showRooIgnoredFiles", e.target.checked)}
-						data-testid="show-rooignored-files-checkbox">
-						<label className="block font-medium mb-1">
-							{t("settings:contextManagement.rooignore.label")}
-						</label>
-					</VSCodeCheckbox>
-					<div className="text-vscode-descriptionForeground text-sm mt-1">
-						{t("settings:contextManagement.rooignore.description")}
-					</div>
-				</div>
+                                <div>
+                                        <VSCodeCheckbox
+                                                checked={showRooIgnoredFiles}
+                                                onChange={(e: any) => setCachedStateField("showRooIgnoredFiles", e.target.checked)}
+                                                data-testid="show-rooignored-files-checkbox">
+                                                <label className="block font-medium mb-1">
+                                                        {t("settings:contextManagement.rooignore.label")}
+                                                </label>
+                                        </VSCodeCheckbox>
+                                        <div className="text-vscode-descriptionForeground text-sm mt-1">
+                                                {t("settings:contextManagement.rooignore.description")}
+                                        </div>
+                                </div>
+
+                                <div>
+                                        <VSCodeCheckbox
+                                                checked={openFilesInBackground}
+                                                onChange={(e: any) => setCachedStateField("openFilesInBackground", e.target.checked)}
+                                                data-testid="open-files-in-background-checkbox">
+                                                <label className="block font-medium mb-1">
+                                                        {t("settings:contextManagement.openFilesInBackground.label")}
+                                                </label>
+                                        </VSCodeCheckbox>
+                                        <div className="text-vscode-descriptionForeground text-sm mt-1">
+                                                {t("settings:contextManagement.openFilesInBackground.description")}
+                                        </div>
+                                </div>
 
 				<div>
 					<div className="flex flex-col gap-2">
