@@ -151,9 +151,10 @@ export interface WebviewMessage {
 		| "silentlyRefreshMcpMarketplace" // kilocode_change
 		| "fetchLatestMcpServersFromHub" // kilocode_change
 		| "downloadMcp" // kilocode_change
-		| "showSystemNotification" // kilocode_change
-		| "showAutoApproveMenu" // kilocode_change
-		| "reportBug" // kilocode_change
+                | "showSystemNotification" // kilocode_change
+                | "showAutoApproveMenu" // kilocode_change
+                | "openFilesInBackground"
+                | "reportBug" // kilocode_change
 		| "profileButtonClicked" // kilocode_change
 		| "fetchProfileDataRequest" // kilocode_change
 		| "profileDataResponse" // kilocode_change

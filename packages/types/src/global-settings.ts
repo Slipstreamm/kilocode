@@ -51,9 +51,10 @@ export const globalSettingsSchema = z.object({
 	maxConcurrentFileReads: z.number().optional(),
 
 	browserToolEnabled: z.boolean().optional(),
-	browserViewportSize: z.string().optional(),
-	showAutoApproveMenu: z.boolean().optional(), // kilocode_change
-	workflowToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
+        browserViewportSize: z.string().optional(),
+        showAutoApproveMenu: z.boolean().optional(), // kilocode_change
+        openFilesInBackground: z.boolean().optional(),
+        workflowToggles: z.record(z.string(), z.boolean()).optional(), // kilocode_change
 	screenshotQuality: z.number().optional(),
 	remoteBrowserEnabled: z.boolean().optional(),
 	remoteBrowserHost: z.string().optional(),
@@ -190,11 +191,12 @@ export const GLOBAL_SETTINGS_KEYS = keysOf<GlobalSettings>()([
 	"customModePrompts",
 	"customSupportPrompts",
 	"enhancementApiConfigId",
-	"cachedChromeHostUrl",
-	"historyPreviewCollapsed",
+        "cachedChromeHostUrl",
+        "historyPreviewCollapsed",
 
-	"showAutoApproveMenu", // kilocode_change
-	"workflowToggles", // kilocode_change
+        "showAutoApproveMenu", // kilocode_change
+        "openFilesInBackground",
+        "workflowToggles", // kilocode_change
 ])
 
 /**
@@ -318,10 +320,12 @@ export const EVALS_SETTINGS: RooCodeSettings = {
 	terminalPowershellCounter: false,
 	terminalZshOhMy: true,
 	terminalZshClearEolMark: true,
-	terminalZshP10k: false,
-	terminalZdotdir: true,
-	terminalCompressProgressBar: true,
-	terminalShellIntegrationDisabled: true,
+       terminalZshP10k: false,
+       terminalZdotdir: true,
+       terminalCompressProgressBar: true,
+       terminalShellIntegrationDisabled: true,
+
+        openFilesInBackground: false,
 
 	diffEnabled: true,
 	fuzzyMatchThreshold: 1,

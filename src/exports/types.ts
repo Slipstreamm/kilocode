@@ -75,9 +75,10 @@ type GlobalSettings = {
 	allowedMaxRequests?: number | undefined
 	autoCondenseContextPercent?: number | undefined
 	browserToolEnabled?: boolean | undefined
-	browserViewportSize?: string | undefined
-	showAutoApproveMenu?: boolean | undefined
-	workflowToggles?:
+        browserViewportSize?: string | undefined
+        showAutoApproveMenu?: boolean | undefined
+        openFilesInBackground?: boolean | undefined
+        workflowToggles?:
 		| {
 				[x: string]: boolean
 		  }
@@ -862,9 +863,10 @@ type IpcMessage =
 								allowedMaxRequests?: number | undefined
 								autoCondenseContextPercent?: number | undefined
 								browserToolEnabled?: boolean | undefined
-								browserViewportSize?: string | undefined
-								showAutoApproveMenu?: boolean | undefined
-								workflowToggles?:
+                                                                browserViewportSize?: string | undefined
+                                                                showAutoApproveMenu?: boolean | undefined
+                                                                openFilesInBackground?: boolean | undefined
+                                                                workflowToggles?:
 									| {
 											[x: string]: boolean
 									  }
@@ -1360,9 +1362,10 @@ type TaskCommand =
 					allowedMaxRequests?: number | undefined
 					autoCondenseContextPercent?: number | undefined
 					browserToolEnabled?: boolean | undefined
-					browserViewportSize?: string | undefined
-					showAutoApproveMenu?: boolean | undefined
-					workflowToggles?:
+                                        browserViewportSize?: string | undefined
+                                        showAutoApproveMenu?: boolean | undefined
+                                        openFilesInBackground?: boolean | undefined
+                                        workflowToggles?:
 						| {
 								[x: string]: boolean
 						  }

@@ -157,9 +157,10 @@ export type ExtensionState = Pick<
 	| "allowedCommands"
 	| "allowedMaxRequests"
 	| "browserToolEnabled"
-	| "browserViewportSize"
-	| "showAutoApproveMenu" // kilocode_change
-	| "screenshotQuality"
+        | "browserViewportSize"
+        | "showAutoApproveMenu" // kilocode_change
+        | "openFilesInBackground"
+        | "screenshotQuality"
 	| "remoteBrowserEnabled"
 	| "remoteBrowserHost"
 	// | "enableCheckpoints" // Optional in GlobalSettings, required here.
@@ -218,8 +219,9 @@ export type ExtensionState = Pick<
 	maxOpenTabsContext: number // Maximum number of VSCode open tabs to include in context (0-500)
 	maxWorkspaceFiles: number // Maximum number of files to include in current working directory details (0-500)
 	showRooIgnoredFiles: boolean // Whether to show .kilocodeignore'd files in listings
-	maxReadFileLine: number // Maximum number of lines to read from a file before truncating
-	showAutoApproveMenu: boolean // kilocode_change: Whether to show the auto-approve menu in the chat view
+        maxReadFileLine: number // Maximum number of lines to read from a file before truncating
+        showAutoApproveMenu: boolean // kilocode_change: Whether to show the auto-approve menu in the chat view
+        openFilesInBackground: boolean
 
 	experiments: Record<ExperimentId, boolean> // Map of experiment IDs to their enabled state
 

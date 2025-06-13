@@ -2,6 +2,7 @@ import * as path from "path"
 import * as os from "os"
 import * as vscode from "vscode"
 import { arePathsEqual, getWorkspacePath } from "../../utils/path"
+import { Package } from "../../shared/package"
 
 export async function openImage(dataUri: string) {
 	const matches = dataUri.match(/^data:image\/([a-zA-Z]+);base64,(.+)$/)
@@ -145,9 +146,13 @@ export async function openFile(filePath: string, options: OpenFileOptions = {}) 
 			options.line !== undefined
 				? new vscode.Selection(Math.max(options.line - 1, 0), 0, Math.max(options.line - 1, 0), 0)
 				: undefined
+		const openInBackground = vscode.workspace
+			.getConfiguration(Package.name)
+			.get<boolean>("openFilesInBackground", false)
 		await vscode.window.showTextDocument(document, {
 			preview: false,
 			selection,
+			preserveFocus: openInBackground,
 		})
 	} catch (error) {
 		if (error instanceof Error) {
